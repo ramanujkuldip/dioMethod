@@ -1,0 +1,37 @@
+class APIProvider{
+  //Whene post data with formData params;
+  void NameOfAPI({
+    //create variables
+    var params,
+    Function()? beforeSend,
+    Function(enterModelClassname data)? onSuccess,
+    Function(dynamic error)? onError,
+  }) {
+    APIRequest(url: "enter Url",formdataParams: params).postWithData(
+       beforeSend:() => {if (beforeSend != null) beforeSend()},
+       onSuccess: (data){
+          modelClassName res = modelClassName.fromJson(json.Decode(data.toString()));
+          onSuccess(res);
+       },
+       onError: (error) => {if (onError != null) onError(error)},
+    );
+  }
+  
+  
+  //Whene post data with query params;
+  void nameOfApi({
+    Map<String,dynamic>? params,
+    Function()? beforeSend,
+    Function(modelClassName data)? onSuccess,
+    Function(dynamic error)? onError,
+  }) {
+    APIRequest(url: "enter Url", params: paramas).postWithQuery(
+      beforeSend: () => {if (beforeSend != null) beforeSend()},
+      onSuccess: (data) {
+        modelClassName res = modelClassName.fromJson(json.Decode(data.toString()));
+        onSuccess(res);
+      }, 
+      onError: (error) => {if (onError != null) onError(error)}, 
+    );
+  }
+}
