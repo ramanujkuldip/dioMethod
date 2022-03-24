@@ -1,3 +1,7 @@
+import 'package:dio/dio.dart';
+import 'package:nroll/utils/constant.dart';
+import 'package:nroll/utils/pref_manager.dart';
+
 class ApiRequest{
   final String url;
   final Map<String,dynamic> params;
